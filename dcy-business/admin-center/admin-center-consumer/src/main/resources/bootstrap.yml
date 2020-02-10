@@ -1,0 +1,40 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  application:
+    name: admin-center-consumer
+  cloud:
+    sentinel:
+      transport:
+        dashboard: 192.168.136.170:8858
+      eager: true # 禁用Sentinel的懒加载
+    nacos:
+      discovery:
+        server-addr: 192.168.136.170:8848
+      config:
+        server-addr: 192.168.136.170:8848
+        file-extension: yaml
+
+server:
+  port: 10201
+
+dubbo:
+  application:
+    name: admin-center-consumer
+    qos-enable: false
+  protocol:
+    name: dubbo
+    port: 20201
+    serialization: kryo
+  consumer:
+    loadbalance: roundrobin
+  registry:
+    address: nacos://192.168.136.170:8848
+  scan:
+    base-packages: com.dcy.dubbo.consumer
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

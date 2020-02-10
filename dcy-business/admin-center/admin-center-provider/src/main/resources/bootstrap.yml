@@ -1,0 +1,36 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  application:
+    name: admin-center-provider
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.136.170:8848
+      config:
+        server-addr: 192.168.136.170:8848
+        file-extension: yaml
+
+
+server:
+  port: 10101
+
+dubbo:
+  application:
+    name: admin-center-provider
+  protocol:
+    name: dubbo
+    port: 20101
+    serialization: kryo
+  provider:
+    loadbalance: roundrobin
+  registry:
+    address: nacos://192.168.136.170:8848
+  scan:
+    base-packages: com.dcy.dubbo.provider
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
