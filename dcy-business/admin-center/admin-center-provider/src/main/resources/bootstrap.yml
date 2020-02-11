@@ -8,9 +8,8 @@ spring:
       discovery:
         server-addr: 192.168.136.170:8848
       config:
-        server-addr: 192.168.136.170:8848
+        server-addr: ${spring.cloud.nacos.discovery.server-addr}
         file-extension: yaml
-
 
 server:
   port: 10101
@@ -25,12 +24,8 @@ dubbo:
   provider:
     loadbalance: roundrobin
   registry:
-    address: nacos://192.168.136.170:8848
+    address: nacos://${spring.cloud.nacos.discovery.server-addr}
   scan:
     base-packages: com.dcy.dubbo.provider
 
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
+

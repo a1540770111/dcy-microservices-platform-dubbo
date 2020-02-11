@@ -4,16 +4,16 @@ spring:
   application:
     name: admin-center-consumer
   cloud:
-    sentinel:
-      transport:
-        dashboard: 192.168.136.170:8858
-      eager: true # 禁用Sentinel的懒加载
     nacos:
       discovery:
         server-addr: 192.168.136.170:8848
       config:
-        server-addr: 192.168.136.170:8848
+        server-addr: ${spring.cloud.nacos.discovery.server-addr}
         file-extension: yaml
+soul:
+  springcloud:
+    adminUrl: http://localhost:9095
+    contextPath: /admin
 
 server:
   port: 10201
@@ -29,12 +29,8 @@ dubbo:
   consumer:
     loadbalance: roundrobin
   registry:
-    address: nacos://192.168.136.170:8848
+    address: nacos://${spring.cloud.nacos.discovery.server-addr}
   scan:
     base-packages: com.dcy.dubbo.consumer
 
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
+
