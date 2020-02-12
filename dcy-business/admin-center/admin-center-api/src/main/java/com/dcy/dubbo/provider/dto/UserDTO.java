@@ -12,6 +12,7 @@ public class UserDTO {
 
     @BindQuery(comparison = Comparison.LIKE)
     private String username;
+    @BindQuery(ignore = true)
     private String password;
 
 }

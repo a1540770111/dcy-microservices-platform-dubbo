@@ -47,11 +47,17 @@ public class SysUserInfoController extends BaseController<ISysUserInfoService, S
         return ResponseData.success(hello);
     }
 
+    @SoulClient(path = "/user/list", desc = "获取用户列表")
     @GetMapping("/list")
     public List<SysUserInfo> list() {
+        return iSysUserInfoService.list();
+    }
+
+    @SoulClient(path = "/user/findByUser", desc = "获取用户列表2")
+    @GetMapping("/findByUser")
+    public List<SysUserInfo> findByUser() {
         UserDTO userDTO = new UserDTO();
-        userDTO.setUsername("adddd");
-        userDTO.setPassword("2222");
+        userDTO.setUsername("admin");
         return iSysUserInfoService.findByUser(userDTO);
     }
 
