@@ -3,6 +3,7 @@ package com.dcy.dubbo.provider.impl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.dcy.db.base.binding.QueryBuilder;
 import com.dcy.dubbo.provider.dto.UserDTO;
+import com.dcy.dubbo.provider.exception.TestException;
 import com.dcy.dubbo.provider.mapper.SysUserInfoMapper;
 import com.dcy.dubbo.provider.model.SysUserInfo;
 import com.dcy.dubbo.provider.service.ISysUserInfoService;
@@ -22,9 +23,10 @@ import java.util.List;
 @Service
 public class SysUserInfoServiceImpl extends BaseServiceImpl<SysUserInfoMapper, SysUserInfo> implements ISysUserInfoService {
 
+
     @Override
-    public String sayHello(String name) {
-        return "Hello Dubbo 1.0.0 " + name;
+    public String sayHello(String name) throws TestException {
+        throw new TestException("测试异常");
     }
 
     @Override

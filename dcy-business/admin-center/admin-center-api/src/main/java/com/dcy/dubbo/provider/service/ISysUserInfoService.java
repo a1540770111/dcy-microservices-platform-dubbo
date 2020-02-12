@@ -2,6 +2,7 @@ package com.dcy.dubbo.provider.service;
 
 import com.dcy.db.base.service.BaseService;
 import com.dcy.dubbo.provider.dto.UserDTO;
+import com.dcy.dubbo.provider.exception.TestException;
 import com.dcy.dubbo.provider.model.SysUserInfo;
 
 import java.util.List;
@@ -13,7 +14,7 @@ import java.util.List;
  */
 public interface ISysUserInfoService extends BaseService<SysUserInfo> {
 
-    String sayHello(String name);
+    String sayHello(String name) throws TestException;
 
     List<SysUserInfo> findByUser(UserDTO userDTO);
 }
