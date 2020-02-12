@@ -15,6 +15,7 @@
 
         <dubbo.version>2.7.3</dubbo.version>
         <alibaba-spring-context-support.version>1.0.6</alibaba-spring-context-support.version>
+        <api-boot.version>2.2.2.RELEASE</api-boot.version>
     </properties>
 
     <dependencyManagement>
@@ -93,6 +94,15 @@
                 <groupId>com.alibaba.spring</groupId>
                 <artifactId>spring-context-support</artifactId>
                 <version>${alibaba-spring-context-support.version}</version>
+            </dependency>
+
+            <!--ApiBoot版本依赖-->
+            <dependency>
+                <groupId>org.minbox.framework</groupId>
+                <artifactId>api-boot-dependencies</artifactId>
+                <version>${api-boot.version}</version>
+                <scope>import</scope>
+                <type>pom</type>
             </dependency>
         </dependencies>
     </dependencyManagement>

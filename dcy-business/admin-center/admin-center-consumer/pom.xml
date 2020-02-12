@@ -31,30 +31,10 @@
         <dependency>
             <groupId>org.minbox.framework</groupId>
             <artifactId>api-boot-starter-swagger</artifactId>
-            <version>${api-swagger-starter.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>io.swagger</groupId>
-                    <artifactId>swagger-annotations</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>io.swagger</groupId>
-                    <artifactId>swagger-models</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>io.swagger</groupId>
-            <artifactId>swagger-annotations</artifactId>
-            <version>${swagger.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.swagger</groupId>
-            <artifactId>swagger-models</artifactId>
-            <version>${swagger.version}</version>
         </dependency>
         <!-- swagger2 starter 依赖 end-->
 
+        <!-- 网关 -->
         <dependency>
             <groupId>org.dromara</groupId>
             <artifactId>soul-client-springcloud</artifactId>
