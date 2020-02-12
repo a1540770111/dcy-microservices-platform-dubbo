@@ -3,6 +3,7 @@ package com.dcy.dubbo.provider.service;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.dcy.db.base.model.PageHelper;
 import com.dcy.db.base.service.BaseService;
+import com.dcy.dubbo.provider.dto.UserDTO;
 import com.dcy.dubbo.provider.model.SysUserInfo;
 
 import java.io.Serializable;
@@ -19,6 +20,11 @@ public class ISysUserInfoServiceMock implements ISysUserInfoService {
 
     @Override
     public String sayHello(String name) {
+        return null;
+    }
+
+    @Override
+    public List<SysUserInfo> findByUser(UserDTO userDTO) {
         return null;
     }
 
