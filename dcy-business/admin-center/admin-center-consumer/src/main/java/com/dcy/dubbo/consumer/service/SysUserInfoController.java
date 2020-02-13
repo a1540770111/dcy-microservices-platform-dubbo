@@ -9,8 +9,9 @@ import com.dcy.dubbo.provider.service.ISysUserInfoService;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import io.swagger.annotations.Api;
 import org.apache.dubbo.config.annotation.Reference;
-import org.dromara.soul.client.common.annotation.SoulClient;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -39,7 +40,6 @@ public class SysUserInfoController extends BaseController<ISysUserInfoService, S
      * @return
      * @HystrixCommand(fallbackMethod = "sayHelloError",ignoreExceptions = TestException.class)
      */
-    @SoulClient(path = "/user/sayHello", desc = "测试")
     @HystrixCommand(fallbackMethod = "sayHelloError")
     @GetMapping("/sayHello")
     public ResponseData<String> sayHello(String name) throws TestException {
@@ -47,13 +47,11 @@ public class SysUserInfoController extends BaseController<ISysUserInfoService, S
         return ResponseData.success(hello);
     }
 
-    @SoulClient(path = "/user/list", desc = "获取用户列表")
     @GetMapping("/list")
     public List<SysUserInfo> list() {
         return iSysUserInfoService.list();
     }
 
-    @SoulClient(path = "/user/findByUser", desc = "获取用户列表2")
     @GetMapping("/findByUser")
     public List<SysUserInfo> findByUser() {
         UserDTO userDTO = new UserDTO();
