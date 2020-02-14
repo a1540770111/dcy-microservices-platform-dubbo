@@ -1,7 +1,6 @@
 package com.dcy.provider.model;
 
 import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.SqlCondition;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.dcy.common.model.ValidBaseInterface;
@@ -11,14 +10,8 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.validation.constraints.NotNull;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
 import java.util.Set;
 
 
@@ -34,7 +27,7 @@ import java.util.Set;
 @EqualsAndHashCode(callSuper = true)
 @Accessors(chain = true)
 @ApiModel(description = "用户表")
-public class SysUserInfo extends BaseModel implements ValidBaseInterface, UserDetails {
+public class SysUserInfo extends BaseModel implements ValidBaseInterface {
 
     private static final long serialVersionUID = 1L;
 
@@ -105,34 +98,4 @@ public class SysUserInfo extends BaseModel implements ValidBaseInterface, UserDe
 
     public static final String USER_STATUS = "user_status";
 
-
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        List<GrantedAuthority> auths = new ArrayList<>();
-        // 角色权限集
-        for (String grantedAuthority : this.allPermissionSet) {
-            auths.add(new SimpleGrantedAuthority(grantedAuthority));
-        }
-        return auths;
-    }
-
-    @Override
-    public boolean isAccountNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isAccountNonLocked() {
-        return true;
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return true;
-    }
 }

@@ -1,6 +1,7 @@
 package com.dcy.security.auth.service;
 
 import cn.hutool.core.collection.CollUtil;
+import com.dcy.provider.dto.AuthUser;
 import com.dcy.provider.model.SysUserInfo;
 import com.dcy.provider.service.ISysUserInfoService;
 import org.apache.dubbo.config.annotation.Reference;
@@ -38,7 +39,9 @@ public class UserServiceDetailImpl implements UserDetailsService {
             CollUtil.addAll(permissionSet, roleSet);
             CollUtil.addAll(permissionSet, moduleSet);
             sysUserInfo.setAllPermissionSet(permissionSet);
-            return sysUserInfo;
+            AuthUser authUser = new AuthUser();
+            authUser.setSysUserInfo(sysUserInfo);
+            return authUser;
         }
         return null;
     }

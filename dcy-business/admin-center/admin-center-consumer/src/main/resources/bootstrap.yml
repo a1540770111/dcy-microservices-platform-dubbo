@@ -10,10 +10,6 @@ spring:
       config:
         server-addr: ${spring.cloud.nacos.discovery.server-addr}
         file-extension: yaml
-soul:
-  springcloud:
-    adminUrl: http://localhost:9095
-    contextPath: /admin-center
 
 server:
   port: 10201

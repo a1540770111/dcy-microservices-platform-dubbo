@@ -3,6 +3,7 @@ package com.dcy.security.auth.controller;
 import com.alibaba.fastjson.JSON;
 import com.dcy.common.constant.CommonConstant;
 import com.dcy.common.model.ResponseData;
+import com.dcy.provider.dto.AuthUser;
 import com.dcy.provider.model.SysUserInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -36,7 +37,7 @@ public class AuthController {
     public ResponseData<SysUserInfo> getUser() {
         String tokenValue = ((OAuth2AuthenticationDetails) SecurityContextHolder.getContext().getAuthentication().getDetails()).getTokenValue();
         Object userInfoMap = tokenStore.readAccessToken(tokenValue).getAdditionalInformation().get(CommonConstant.USER_INFO);
-        return ResponseData.success(JSON.parseObject(JSON.toJSONString(userInfoMap), SysUserInfo.class));
+        return ResponseData.success(JSON.parseObject(JSON.toJSONString(userInfoMap), AuthUser.class).getSysUserInfo());
     }
 
     /**
