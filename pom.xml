@@ -13,6 +13,7 @@
         <module>spring-cloud-alibaba-dubbo-nacos</module>
         <module>spring-cloud-alibaba-dubbo-starter</module>
         <module>dcy-business</module>
+        <module>dcy-auth</module>
     </modules>
 
     <properties>

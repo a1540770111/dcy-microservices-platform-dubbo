@@ -1,8 +1,10 @@
+server:
+  port: 10301
 spring:
   main:
     allow-bean-definition-overriding: true
   application:
-    name: admin-center-consumer
+    name: auth-server-center
   cloud:
     nacos:
       discovery:
@@ -13,24 +15,17 @@ spring:
 soul:
   springcloud:
     adminUrl: http://localhost:9095
-    contextPath: /admin-center
-
-server:
-  port: 10201
-
+    contextPath: /auth-center
 dubbo:
   application:
-    name: admin-center-consumer
-    qos-enable: false
+    name: auth-server-center
   protocol:
     name: dubbo
-    port: 20201
+    port: 20301
     serialization: kryo
-  consumer:
+  provider:
     loadbalance: roundrobin
   registry:
     address: nacos://${spring.cloud.nacos.discovery.server-addr}
   scan:
-    base-packages: com.dcy.consumer
-
-
+    base-packages: com.dcy.dubbo.provider

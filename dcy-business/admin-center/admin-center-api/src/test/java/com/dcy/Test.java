@@ -2,8 +2,8 @@ package com.dcy;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.dcy.db.base.binding.QueryBuilder;
-import com.dcy.dubbo.provider.dto.UserDTO;
-import com.dcy.dubbo.provider.model.SysUserInfo;
+import com.dcy.provider.dto.UserDTO;
+import com.dcy.provider.model.SysUserInfo;
 
 /**
  * @Author：dcy

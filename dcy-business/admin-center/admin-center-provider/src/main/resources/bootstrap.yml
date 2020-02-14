@@ -26,6 +26,6 @@ dubbo:
   registry:
     address: nacos://${spring.cloud.nacos.discovery.server-addr}
   scan:
-    base-packages: com.dcy.dubbo.provider
+    base-packages: com.dcy.provider
 
 

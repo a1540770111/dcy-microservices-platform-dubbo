@@ -7,6 +7,7 @@
         <groupId>com.dcy</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
+    <packaging>jar</packaging>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>admin-center-api</artifactId>
@@ -31,7 +32,6 @@
         <dependency>
             <groupId>com.dcy</groupId>
             <artifactId>spring-cloud-alibaba-dubbo-starter</artifactId>
-            <scope>provided</scope>
         </dependency>
 
     </dependencies>
