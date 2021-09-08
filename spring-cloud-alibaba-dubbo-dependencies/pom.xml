@@ -13,7 +13,7 @@
         <spring-cloud.version>Greenwich.RELEASE</spring-cloud.version>
         <spring-cloud-alibaba.version>0.2.1.RELEASE</spring-cloud-alibaba.version>
 
-        <dubbo.version>2.7.3</dubbo.version>
+        <dubbo.version>2.7.13</dubbo.version>
         <alibaba-spring-context-support.version>1.0.6</alibaba-spring-context-support.version>
         <api-boot.version>2.2.2.RELEASE</api-boot.version>
     </properties>
